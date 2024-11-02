@@ -138,7 +138,7 @@ $upload = [];
 $upload['snippet'] = [];
 $upload['snippet']['categoryId'] = "22";
 $upload['snippet']['description'] = isset($o['desc']) ? $o['desc'] : 'No Description';
-$upload['snippet']['title'] = isset($o['title']) ? $o['title'] : 'Title';
+$upload['snippet']['title'] = isset($o['title']) ? $o['title'] : 'Title [' . date(DATE_ATOM) . ']';
 $upload['status'] = [];
 $upload['status']['privacyStatus'] = isset($o['priv']) ? $o['priv'] : 'private';
 $upload['status']['license'] = "youtube";
@@ -179,6 +179,7 @@ if (preg_match('|Location:\s(.*)|', $data, $m) !== 1) {
 	die("\nExpecting Location: from google. didn't see it\n");
 }
 $location = $m[1] ?? 'unset';
+$location = trim($location);
 if ($location == 'unset') {
 	var_export($data);
 	die("\nExpecting Location: from google. got nothing from it\n");
@@ -201,6 +202,9 @@ curl_setopt_array($ch, [
 	CURLOPT_POSTFIELDS => $file_contents,
 ]);
 $data = curl_exec($ch);
+if ($data === false) {
+	die('error in uploading: ' . curl_error($ch) . "\n");
+}
 
 /* Lets dump this response so we know what's going on */
 echo "File uploaded. Response is the following:\n";
