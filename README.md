@@ -26,4 +26,12 @@ Download the OAuth client json data and save it as "client_secrets.json"
 
 Step 4: Create API Key
 
-Create the API key on the Google Credential screen and add it to the top of the upload_video.php
+Create the API key on the Google Credential screen and add it to a api_key.txt file
+
+# Running things
+
+Execute the program. You'll get a URL to hit with a browser.
+
+Get the code, provide it as a parameter to the program.
+
+Upload videos.
