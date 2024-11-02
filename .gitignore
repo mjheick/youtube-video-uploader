@@ -1,0 +1,7 @@
+# Don't want to commit test movies cause who'd wanna lol
+*.mp4
+*.avi
+
+# We also have secrets and such we don't want to store in a repository
+*.json
+api_key.txt
