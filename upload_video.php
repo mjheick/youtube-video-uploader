@@ -151,6 +151,7 @@ $upload['snippet']['title'] = isset($o['title']) ? $o['title'] : 'Title [' . dat
 $upload['status'] = [];
 $upload['status']['privacyStatus'] = isset($o['priv']) ? $o['priv'] : 'private';
 $upload['status']['license'] = "youtube";
+$upload['status']['selfDeclaredMadeForKids'] = false;
 $content = json_encode($upload);
 $content_length = strlen($content);
 $video_length = filesize($o['file']);
