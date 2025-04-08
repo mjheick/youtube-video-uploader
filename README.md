@@ -1,4 +1,4 @@
-# ytuploader
+# youtube-video-uploader
 
 Automating youtube uploads, and the journey on doing it...
 
